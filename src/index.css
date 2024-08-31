@@ -810,3 +810,8 @@ font-size: 1.2rem;
   cursor: pointer;
   background-color: gray;
 }
+.divSmall .forValueDiv{
+  display: flex;
+  align-items: center;
+  gap: .1rem;
+}

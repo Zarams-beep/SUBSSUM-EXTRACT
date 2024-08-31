@@ -32,7 +32,7 @@ return(
                     <Typography color="
 #6882B6">Frequently Asked Questions</Typography>
 
-                    <Typography color="
+                    <Typography className="forValueDiv" color="
 #4169E1">
                     See FAQ
                     <HiArrowNarrowRight/>
@@ -48,7 +48,7 @@ color="white"/></Button>
                     <Typography color="
 #6882B6">Live Chat</Typography>
 
-                    <Typography color="
+                    <Typography className="forValueDiv" color="
 #4169E1">
                     Chat Now
                     <HiArrowNarrowRight/>
@@ -62,10 +62,10 @@ color="white"/></Button>
 #2DAE32`}}><FaWhatsapp size={20}
 color="white"/></Button>
                 <div className="divSmall">
-                    <Typography olor="
+                    <Typography color="
 #6882B6">Whatsapp</Typography>
 
-                    <Typography color="
+                    <Typography className="forValueDiv" color="
 #4169E1">
                     Drop a Message
                     <HiArrowNarrowRight/>
@@ -78,10 +78,10 @@ color="white"/></Button>
 #4169E1`}}><TbPhoneCall size={20}
 color="white"/></Button>
                 <div className="divSmall">
-                    <Typography olor="
+                    <Typography color="
 #6882B6">Phone Call</Typography>
 
-                    <Typography color="
+                    <Typography className="forValueDiv" color="
 #4169E1">
                     Call Us
                     <HiArrowNarrowRight/>
@@ -93,10 +93,10 @@ color="white"/></Button>
                 <Button sx={{backgroundColor:`
 #EE5D50`}}><img src="/information-circle-contained.svg" alt="report" /></Button>
                 <div className="divSmall">
-                    <Typography olor="
+                    <Typography color="
 #6882B6">Report Our Support</Typography>
 
-                    <Typography color="
+                    <Typography className="forValueDiv" color="
 #4169E1">
                     Not Satisfied?
                     <HiArrowNarrowRight/>
@@ -110,10 +110,10 @@ color="white"/></Button>
 #2DAE32`}}><RxStar size={20}
 color="white"/></Button>
                 <div className="divSmall">
-                    <Typography olor="
+                    <Typography color="
 #6882B6">Review Our App</Typography>
 
-                    <Typography color="
+                    <Typography className="forValueDiv" color="
 #4169E1">
                     Coming Soon
                     <HiArrowNarrowRight/>

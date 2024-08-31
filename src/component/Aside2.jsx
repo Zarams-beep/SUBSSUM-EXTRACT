@@ -22,7 +22,6 @@ const Aside2 = () => {
     setIsOpen3(true)
     setIsOpen4(true)
     setIsOpen5(true)
-    navigate('/dash-board');
   };
   
 
@@ -53,7 +52,6 @@ const Aside2 = () => {
     setIsOpen3(true)
     setIsOpen4(true)
     setIsOpen(true)
-    navigate('/air-time');
   };
   const is570 = useMediaQuery({query:'(max-width:570px)'})
 
@@ -75,6 +73,7 @@ const Aside2 = () => {
     setHighLight6(false)
     setHighLight7(false)
     setHighLight8(false)
+    navigate('/dash-board');
   }
   const handleHight2 = ()=>{
     setHighLight1(false)
@@ -115,7 +114,7 @@ const Aside2 = () => {
     setHighLight6(false)
     setHighLight7(false)
     setHighLight8(false)
-
+    navigate('/air-time');
   }
   const handleHight6 = ()=>{
     setHighLight1(false)
