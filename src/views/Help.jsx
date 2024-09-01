@@ -8,6 +8,7 @@ import { IoChatbubblesOutline } from "react-icons/io5";
 import { TbPhoneCall } from "react-icons/tb";
 import { RxStar } from "react-icons/rx";
 import { HiArrowNarrowRight } from "react-icons/hi";
+import { Link, } from "react-router-dom";
 const Help =()=>{
     const {SignUpValues, capitalizeFirstLetter} = useContext(GlobalContext)
 
@@ -34,8 +35,8 @@ return(
 
                     <Typography className="forValueDiv" color="
 #4169E1">
-                    See FAQ
-                    <HiArrowNarrowRight/>
+                    <Link style={{color:`#4169E1`,textDecoration:`none`}}>See FAQ
+                    <HiArrowNarrowRight/></Link>
                     </Typography>
                 </div>
             </Card>
@@ -50,8 +51,9 @@ color="white"/></Button>
 
                     <Typography className="forValueDiv" color="
 #4169E1">
+    <Link style={{color:`#4169E1`,textDecoration:`none`}}>
                     Chat Now
-                    <HiArrowNarrowRight/>
+                    <HiArrowNarrowRight/></Link>
                     </Typography>
                 </div>
             </Card>
@@ -67,8 +69,9 @@ color="white"/></Button>
 
                     <Typography className="forValueDiv" color="
 #4169E1">
+    <Link style={{color:`#4169E1`,textDecoration:`none`}}>
                     Drop a Message
-                    <HiArrowNarrowRight/>
+                    <HiArrowNarrowRight/></Link>
                     </Typography>
                 </div>
             </Card>
@@ -83,8 +86,9 @@ color="white"/></Button>
 
                     <Typography className="forValueDiv" color="
 #4169E1">
+    <Link style={{color:`#4169E1`,textDecoration:`none`}}>
                     Call Us
-                    <HiArrowNarrowRight/>
+                    <HiArrowNarrowRight/></Link>
                     </Typography>
                 </div>
             </Card>
@@ -98,8 +102,9 @@ color="white"/></Button>
 
                     <Typography className="forValueDiv" color="
 #4169E1">
+    <Link style={{color:`#4169E1`,textDecoration:`none`}}>
                     Not Satisfied?
-                    <HiArrowNarrowRight/>
+                    <HiArrowNarrowRight/></Link>
                     </Typography>
                 </div>
             </Card>
@@ -115,8 +120,9 @@ color="white"/></Button>
 
                     <Typography className="forValueDiv" color="
 #4169E1">
+    <Link style={{color:`#4169E1`,textDecoration:`none`}}>
                     Coming Soon
-                    <HiArrowNarrowRight/>
+                    <HiArrowNarrowRight/></Link>
                     </Typography>
                 </div>
             </Card>

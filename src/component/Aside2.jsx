@@ -180,7 +180,7 @@ const Aside2 = () => {
           </Button>
 
           <Button
-            className={`menu-item ${hightLight2?`hightLight`:``}`}
+            className={`menu-item ${hightLight2?`hightLight2`:``}`}
             onClick={() => {
               handleOpen2();
               handleHight2();
