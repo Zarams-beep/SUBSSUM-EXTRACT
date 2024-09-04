@@ -10,144 +10,23 @@ import { useMediaQuery } from "react-responsive";
 import { useNavigate } from "react-router-dom";
 import { MdLogout } from "react-icons/md";
 const Aside2 = () => {
-  const [isOpen, setIsOpen] = useState(true);
-  const [isOpen2, setIsOpen2] = useState(true);
-  const [isOpen3, setIsOpen3] = useState(true);
-  const [isOpen4, setIsOpen4] = useState(true);
-  const [isOpen5, setIsOpen5] = useState(true);
-  const navigate = useNavigate();
-  const handleOpen = () => {
-    setIsOpen((prev) => !prev);
-    setIsOpen2(true)
-    setIsOpen3(true)
-    setIsOpen4(true)
-    setIsOpen5(true)
-  };
-  
+  const [highlighted, setHighlighted] = useState(1);
+  const [isOpen, setIsOpen] = useState([true, true, true, true, true]);
+const navigate = useNavigate();
+const toggleOpen = (index) => {
+  setIsOpen(prev => prev.map((item, i) => (i === index ? !item : true)));
+};
 
-  const handleOpen2 = () => {
-    setIsOpen2((prev) => !prev);
-    setIsOpen(true)
-    setIsOpen3(true)
-    setIsOpen4(true)
-    setIsOpen5(true)
-  };
-  const handleOpen3 = () => {
-    setIsOpen3((prev) => !prev);
-    setIsOpen2(true)
-    setIsOpen(true)
-    setIsOpen4(true)
-    setIsOpen5(true)
-  };
-  const handleOpen4 = () => {
-    setIsOpen4((prev) => !prev);
-    setIsOpen2(true)
-    setIsOpen3(true)
-    setIsOpen(true)
-    setIsOpen5(true)
-  };
-  const handleOpen5 = () => {
-    setIsOpen5((prev) => !prev);
-    setIsOpen2(true)
-    setIsOpen3(true)
-    setIsOpen4(true)
-    setIsOpen(true)
-  };
-  const is570 = useMediaQuery({query:'(max-width:570px)'})
+const handleHighlight = (index, path) => {
+  setHighlighted(index);
+  if (path) {
+    setTimeout(() => {
+      navigate(path);
+    }, 50);
+  }
+};
 
-  const [hightLight1,setHighLight1] = useState(true)
-  const [hightLight2,setHighLight2] = useState(false)
-  const [hightLight3,setHighLight3] = useState(false)
-  const [hightLight4,setHighLight4] = useState(false)
-  const [hightLight5,setHighLight5] = useState(false)
-  const [hightLight6,setHighLight6] = useState(false)
-  const [hightLight7,setHighLight7] = useState(false)
-  const [hightLight8,setHighLight8] = useState(false)
-
-  const handleHight1 = ()=>{
-    setHighLight1(true)
-    setHighLight2(false)
-    setHighLight3(false)
-    setHighLight4(false)
-    setHighLight5(false)
-    setHighLight6(false)
-    setHighLight7(false)
-    setHighLight8(false)
-    navigate('/dash-board');
-  }
-  const handleHight2 = ()=>{
-    setHighLight1(false)
-    setHighLight2(true)
-    setHighLight3(false)
-    setHighLight4(false)
-    setHighLight5(false)
-    setHighLight6(false)
-    setHighLight7(false)
-    setHighLight8(false)
-  }
-  const handleHight3 = ()=>{
-    setHighLight1(false)
-    setHighLight2(false)
-    setHighLight3(true)
-    setHighLight4(false)
-    setHighLight5(false)
-    setHighLight6(false)
-    setHighLight7(false)
-    setHighLight8(false)
-  }
-  const handleHight4 = ()=>{
-    setHighLight1(false)
-    setHighLight2(false)
-    setHighLight3(false)
-    setHighLight4(true)
-    setHighLight5(false)
-    setHighLight6(false)
-    setHighLight7(false)
-    setHighLight8(false)
-  }
-  const handleHight5 = ()=>{
-    setHighLight1(false)
-    setHighLight2(false)
-    setHighLight3(false)
-    setHighLight4(false)
-    setHighLight5(true)
-    setHighLight6(false)
-    setHighLight7(false)
-    setHighLight8(false)
-    navigate('/air-time');
-  }
-  const handleHight6 = ()=>{
-    setHighLight1(false)
-    setHighLight2(false)
-    setHighLight3(false)
-    setHighLight4(false)
-    setHighLight5(false)
-    setHighLight6(true)
-    setHighLight7(false)
-    setHighLight8(false)
-    navigate(`/transaction`)
-  }
-  const handleHight7 = ()=>{
-    setHighLight1(false)
-    setHighLight2(false)
-    setHighLight3(false)
-    setHighLight4(false)
-    setHighLight5(false)
-    setHighLight6(false)
-    setHighLight7(true)
-    setHighLight8(false)
-    navigate(`/help`)
-  }
-  const handleHight8 = ()=>{
-    setHighLight1(false)
-    setHighLight2(false)
-    setHighLight3(false)
-    setHighLight4(false)
-    setHighLight5(false)
-    setHighLight6(false)
-    setHighLight7(false)
-    setHighLight8(true)
-  }
+const is570 = useMediaQuery({ query: '(max-width:570px)' });
   return (
     
         <Box style={{ display: !is570 ? 'block' : 'none' }}
@@ -162,10 +41,10 @@ const Aside2 = () => {
         </Box>
         <List className="menu" sx={{ p: 0 }}>
           <Button
-            className={`menu-item ${hightLight1?`hightLight`:``}`}
+            className={`menu-item ${highlighted === 1 ? 'hightLight' : ''}`}
             onClick={() => {
-              handleOpen();
-              handleHight1();
+              toggleOpen(0);
+              handleHighlight(1, '/dash-board');
             }}
           >
             <Box className="logoPart">
@@ -180,10 +59,10 @@ const Aside2 = () => {
           </Button>
 
           <Button
-            className={`menu-item ${hightLight2?`hightLight2`:``}`}
+            className={`menu-item ${highlighted === 2 ? 'hightLight' : ''}`}
             onClick={() => {
-              handleOpen2();
-              handleHight2();
+              toggleOpen(1);
+              handleHighlight(2, '#');
             }}
           >
             <Box className="logoPart">
@@ -193,15 +72,15 @@ const Aside2 = () => {
               <Typography>Buy Airtime</Typography>
             </Box>
             <Typography>
-              {isOpen2 ? <IoIosArrowDown className='iconAside'/> : <IoIosArrowUp className='iconAside'/>}
+              {isOpen ? <IoIosArrowDown className='iconAside'/> : <IoIosArrowUp className='iconAside'/>}
             </Typography>
           </Button>
 
           <Button
-            className={`menu-item ${hightLight3?`hightLight`:``}`}
+            className={`menu-item ${highlighted === 3 ? 'hightLight' : ''}`}
             onClick={() => {
-              handleOpen3();
-              handleHight3();
+              toggleOpen(2);
+              handleHighlight(3, '#');
             }}
           >
             <Box className="logoPart">
@@ -211,15 +90,15 @@ const Aside2 = () => {
               <Typography>Buy Data</Typography>
             </Box>
             <Typography>
-              {isOpen3 ? <IoIosArrowDown className='iconAside'/> : <IoIosArrowUp className='iconAside'/>}
+              {isOpen ? <IoIosArrowDown className='iconAside'/> : <IoIosArrowUp className='iconAside'/>}
             </Typography>
           </Button>
 
           <Button
-            className={`menu-item ${hightLight4?`hightLight`:``}`}
+            className={`menu-item ${highlighted === 4 ? 'hightLight' : ''}`}
             onClick={() => {
-              handleOpen4();
-              handleHight4();
+              toggleOpen(3);
+              handleHighlight(4, '#');
             }}
           >
             <Box className="logoPart">
@@ -229,16 +108,16 @@ const Aside2 = () => {
               <Typography>TV Subscription</Typography>
             </Box>
             <Typography>
-              {isOpen4 ? <IoIosArrowDown className='iconAside'/> : <IoIosArrowUp className='iconAside'/>}
+              {isOpen ? <IoIosArrowDown className='iconAside'/> : <IoIosArrowUp className='iconAside'/>}
             </Typography>
           </Button>
 
           <Button
-            className={`menu-item ${hightLight5?`hightLight`:``}`}
-            onClick={() => {
-              handleOpen5();
-              handleHight5();
-            }}
+             className={`menu-item ${highlighted === 5 ? 'hightLight' : ''}`}
+             onClick={() => {
+               toggleOpen(4);
+               handleHighlight(5, '/air-time');
+             }}
           >
             <Box className="logoPart">
               <Typography>
@@ -247,11 +126,11 @@ const Aside2 = () => {
               <Typography>Pay Electric Bill</Typography>
             </Box>
             <Typography>
-              {isOpen5 ? <IoIosArrowDown className='iconAside'/> : <IoIosArrowUp className='iconAside'/>}
+              {isOpen ? <IoIosArrowDown className='iconAside'/> : <IoIosArrowUp className='iconAside'/>}
             </Typography>
           </Button>
 
-          {!isOpen5?<Button className={`menu-item`}>
+          {!isOpen?<Button className={`menu-item`}>
             <Box className="logoPart">
             <MdLogout className='iconAside'/> 
             <Typography>Airtime to Cash</Typography>
@@ -259,9 +138,10 @@ const Aside2 = () => {
           </Button>:``}
 
           <Button
-            className={`menu-item ${hightLight6?`hightLight`:``}`}
+            className={`menu-item ${highlighted === 6 ? 'hightLight' : ''}`}
             onClick={() => {
-              handleHight6();
+              toggleOpen(5);
+              handleHighlight(6, '/transaction');
             }}
           >
             {" "}
@@ -274,9 +154,10 @@ const Aside2 = () => {
           </Button>
 
           <Button
-            className={`menu-item ${hightLight7?`hightLight`:``}`}
+            className={`menu-item ${highlighted === 7 ? 'hightLight' : ''}`}
             onClick={() => {
-              handleHight7();
+              toggleOpen(6);
+              handleHighlight(7, '/help');
             }}
           >
             {" "}
@@ -289,9 +170,10 @@ const Aside2 = () => {
           </Button>
 
           <Button
-            className={`menu-item ${hightLight8?`hightLight`:``}`}
+            className={`menu-item ${highlighted === 8 ? 'hightLight' : ''}`}
             onClick={() => {
-              handleHight8();
+              toggleOpen(7);
+              handleHighlight(8, '#');
             }}
             sx={{marginTop:`2rem`}}
           >
